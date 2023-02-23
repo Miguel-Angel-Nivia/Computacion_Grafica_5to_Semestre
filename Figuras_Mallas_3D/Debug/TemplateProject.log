@@ -1,0 +1,8 @@
+﻿cl : línea de comandos  warning D9035: La opción 'Gm' está desusada y se quitará en próximas versiones
+  main.cpp
+C:\Users\FAMILIA\Desktop\TODO MIGUE\Universidad Javeriana Cali\Asignaturas-Semestre\5. Quinto Semestre\Computación Grafica\Figuras-Malla-C++\Computacion-Grafica-5-Semestre\main.cpp(90,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\FAMILIA\Desktop\TODO MIGUE\Universidad Javeriana Cali\Asignaturas-Semestre\5. Quinto Semestre\Computación Grafica\Figuras-Malla-C++\Computacion-Grafica-5-Semestre\main.cpp(91,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\FAMILIA\Desktop\TODO MIGUE\Universidad Javeriana Cali\Asignaturas-Semestre\5. Quinto Semestre\Computación Grafica\Figuras-Malla-C++\Computacion-Grafica-5-Semestre\main.cpp(94,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\FAMILIA\Desktop\TODO MIGUE\Universidad Javeriana Cali\Asignaturas-Semestre\5. Quinto Semestre\Computación Grafica\Figuras-Malla-C++\Computacion-Grafica-5-Semestre\main.cpp(95,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\FAMILIA\Desktop\TODO MIGUE\Universidad Javeriana Cali\Asignaturas-Semestre\5. Quinto Semestre\Computación Grafica\Figuras-Malla-C++\Computacion-Grafica-5-Semestre\main.cpp(96,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+  TemplateProject.vcxproj -> C:\Users\FAMILIA\Desktop\TODO MIGUE\Universidad Javeriana Cali\Asignaturas-Semestre\5. Quinto Semestre\Computación Grafica\Figuras-Malla-C++\Computacion-Grafica-5-Semestre\Debug\TemplateProject.exe

@@ -1,0 +1,3 @@
+C:\Users\FAMILIA\Desktop\TODO MIGUE\Universidad Javeriana Cali\Asignaturas-Semestre\5. Quinto Semestre\Computación Grafica\C++\Debug\TemplateProject.exe
+C:\Users\FAMILIA\Desktop\TODO MIGUE\Universidad Javeriana Cali\Asignaturas-Semestre\5. Quinto Semestre\Computación Grafica\Figuras-Malla-C++\Debug\TemplateProject.exe
+C:\Users\FAMILIA\Desktop\TODO MIGUE\Universidad Javeriana Cali\Asignaturas-Semestre\5. Quinto Semestre\Computación Grafica\Figuras-Malla-C++\Computacion-Grafica-5-Semestre\Debug\TemplateProject.exe
