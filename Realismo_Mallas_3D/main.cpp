@@ -12,6 +12,9 @@
 #include "glm.h"
 #include <FreeImage.h> //*** Para Textura: Incluir librería
 
+// Include de clases
+#include "Mallas.h"
+
 //-----------------------------------------------------------------------------
 
 
@@ -19,15 +22,16 @@ class myWindow : public cwc::glutWindow
 {
 protected:
    cwc::glShaderManager SM;
-   cwc::glShader *shader;
-   cwc::glShader* shader1; //Para Textura: variable para abrir los shader de textura
+   cwc::glShader *shader1;
+   cwc::glShader* shader2; //Para Textura: variable para abrir los shader de textura
    GLuint ProgramObject;
    clock_t time0,time1;
    float timer010;  // timer counting 0->1->0
    bool bUp;        // flag if counting up or down.
-   GLMmodel* objmodel_ptr;
-   GLMmodel* objmodel_ptr1; //*** Para Textura: variable para objeto texturizado
    GLuint texid; //*** Para Textura: variable que almacena el identificador de textura
+
+   Mallas* miMalla1;
+   Mallas* miMalla2;
 
 
 public:
@@ -74,28 +78,27 @@ public:
       //timer010 = 0.09; //for screenshot!
 
       glPushMatrix();
-	  glRotatef(timer010 * 360, 0.5, 1.0f, 0.1f);
+	  // glRotatef(timer010 * 360, 0.5, 1.0f, 0.1f);   // Rotacion del mundo
 
-      if (shader) shader->begin();
+	  // ***************************** Dibujar Malla *********************************
+
+      if (shader1) shader1->begin();
 		  
-		  glPushMatrix();
-		  glTranslatef(-1.5f, 0.0f, 0.0f);
-		  glmDraw(objmodel_ptr, GLM_SMOOTH | GLM_MATERIAL);
-		  glPopMatrix();
-	      //glutSolidTeapot(1.0);
-      if (shader) shader->end();
+		miMalla1->DibujarMallas(1.5, 0, 0);
+		
+		miMalla2->DibujarMallas(-1.5, 0, 0);
+
+      if (shader1) shader1->end();
 
 	  //*** Para Textura: llamado al shader para objetos texturizados
-	  if (shader1) shader1->begin();
+	  /*if (shader2) shader2->begin();
 
 		  glPushMatrix();
 		  glTranslatef(1.5f, 0.0f, 0.0f);
 		  glBindTexture(GL_TEXTURE_2D, texid);
-		  glmDraw(objmodel_ptr1, GLM_SMOOTH | GLM_MATERIAL | GLM_TEXTURE);
+		  glmDraw(objeto2, GLM_SMOOTH | GLM_MATERIAL | GLM_TEXTURE);
 		  glPopMatrix();
-	  //glutSolidTeapot(1.0);
-	  if (shader1) shader1->end();
-
+	  if (shader2) shader2->end();*/
 
       glutSwapBuffers();
       glPopMatrix();
@@ -111,59 +114,41 @@ public:
 	// is already available!
 	virtual void OnInit()
 	{
+		// Creamos las nuevas mallas
+		miMalla1 = new Mallas();
+		miMalla2 = new Mallas();
+
+		glTranslatef(0.0f, 0.0f, -5.0f);		// Espacio en el mundo
 		glClearColor(0.5f, 0.5f, 1.0f, 0.0f);
 		glShadeModel(GL_SMOOTH);
 		glEnable(GL_DEPTH_TEST);
 
-		shader = SM.loadfromFile("vertexshader.txt","fragmentshader.txt"); // load (and compile, link) from file
-		if (shader==0) 
+		shader1 = SM.loadfromFile("vertexshader.txt","fragmentshader.txt"); // load (and compile, link) from file
+		if (shader1==0) 
          std::cout << "Error Loading, compiling or linking shader\n";
-      else
-      {
-         ProgramObject = shader->GetProgramObject();
-      }
-
-	 //*** Para Textura: abre los shaders para texturas
-		shader1 = SM.loadfromFile("vertexshaderT.txt", "fragmentshaderT.txt"); // load (and compile, link) from file
-		if (shader1 == 0)
-			std::cout << "Error Loading, compiling or linking shader\n";
 		else
 		{
 			ProgramObject = shader1->GetProgramObject();
+		}
+
+	 //*** Para Textura: abre los shaders para texturas
+		shader2 = SM.loadfromFile("vertexshaderT.txt", "fragmentshaderT.txt"); // load (and compile, link) from file
+		if (shader2 == 0)
+			std::cout << "Error Loading, compiling or linking shader\n";
+		else
+		{
+			ProgramObject = shader2->GetProgramObject();
 		}
 
       time0 = clock();
       timer010 = 0.0f;
       bUp = true;
 
-	  //Abrir mallas
-	  objmodel_ptr = NULL;
+	  // **************************** Abrir mallas *************************************
 
-	  if (!objmodel_ptr)
-	  {
-		  objmodel_ptr = glmReadOBJ("./Mallas/bunny.obj");
-		  if (!objmodel_ptr)
-			  exit(0);
+	  miMalla1->AbrirMallas("./Mallas/mesa_Octogonal.obj");
 
-		  glmUnitize(objmodel_ptr);
-		  glmFacetNormals(objmodel_ptr);
-		  glmVertexNormals(objmodel_ptr, 90.0);
-	  }
-
-
-	  //*** Para Textura: abrir malla de objeto a texturizar
-	  objmodel_ptr1 = NULL;
-
-	  if (!objmodel_ptr1)
-	  {
-		  objmodel_ptr1 = glmReadOBJ("./Mallas/mesa_Octogonal.obj");		// Aqui ponemos los objetos
-		  if (!objmodel_ptr1)
-			  exit(0);
-
-		  glmUnitize(objmodel_ptr1);
-		  glmFacetNormals(objmodel_ptr1);
-		  glmVertexNormals(objmodel_ptr1, 90.0);
-	  }
+	  miMalla2->AbrirMallas("./Mallas/silla.obj");
  
 	  //*** Para Textura: abrir archivo de textura
 	  initialize_textures();
@@ -204,9 +189,9 @@ public:
 	virtual void OnKeyUp(int nKey, char cAscii)
 	{
       if (cAscii == 's')      // s: Shader
-         shader->enable();
+         shader1->enable();
       else if (cAscii == 'f') // f: Fixed Function
-         shader->disable();
+         shader1->disable();
 	}
 
    void UpdateTimer()
