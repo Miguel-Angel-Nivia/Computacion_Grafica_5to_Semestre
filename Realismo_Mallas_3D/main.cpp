@@ -32,7 +32,19 @@ protected:
 
    Mallas* miMalla1;
    Mallas* miMalla2;
-
+   Mallas* miMalla3;
+   Mallas* miMalla4;
+   Mallas* miMalla5;
+   Mallas* miMalla6;
+   Mallas* miMalla7;
+   Mallas* miMalla8;
+   Mallas* miMalla9;
+   Mallas* miMalla10;
+   Mallas* miMalla11;
+   Mallas* miMalla12;
+   Mallas* miMalla13;
+   Mallas* miMalla14;
+   Mallas* miMalla15;
 
 public:
 	myWindow(){}
@@ -78,15 +90,27 @@ public:
       //timer010 = 0.09; //for screenshot!
 
       glPushMatrix();
-	  // glRotatef(timer010 * 360, 0.5, 1.0f, 0.1f);   // Rotacion del mundo
+	  glRotatef(timer010 * 360, 0.5, 1.0f, 0.1f);   // Rotacion del mundo
 
 	  // ***************************** Dibujar Malla *********************************
 
       if (shader1) shader1->begin();
 		  
-		miMalla1->DibujarMallas(1.5, 0, 0);
-		
-		miMalla2->DibujarMallas(-1.5, 0, 0);
+		miMalla1->DibujarMallas(0, -1.4, 0);	  // Suelo
+		miMalla2->DibujarMallas(-1.5, 0, 0);  // Silla
+		miMalla3->DibujarMallas(3, 0, 0.5);   // Mini Silla
+		miMalla4->DibujarMallas(-3, 0, 0);  // Mesa Comun
+		miMalla5->DibujarMallas(3, 0, 0);   // Mesa Con Cajones
+		miMalla6->DibujarMallas(0, 0, 0);  // Mesa Octogonal
+		miMalla7->DibujarMallas(2, 0, -2);   // Estanteria
+		miMalla8->DibujarMallas(2, 0, 2);  // Armario 2 Puertas
+		miMalla9->DibujarMallas(-2, 0, 2);   // Armario 3 Puertas
+		miMalla10->DibujarMallas(1.5, 0, -0.8);  // Persona observadora
+		miMalla11->DibujarMallas(-1, 0, -3);  // Perosna Agachada
+		miMalla12->DibujarMallas(-1.8, 0, -3); // Persona Tropezando
+		miMalla13->DibujarMallas(0, 0, -3); // Personaje Principal Sentado
+		miMalla14->DibujarMallas(1, 0, -1.5); // Persona Sentado
+		miMalla15->DibujarMallas(3, 0, -4);  // Casa
 
       if (shader1) shader1->end();
 
@@ -117,6 +141,19 @@ public:
 		// Creamos las nuevas mallas
 		miMalla1 = new Mallas();
 		miMalla2 = new Mallas();
+		miMalla3 = new Mallas();
+		miMalla4 = new Mallas();
+		miMalla5 = new Mallas();
+		miMalla6 = new Mallas();
+		miMalla7 = new Mallas();
+		miMalla8 = new Mallas();
+		miMalla9 = new Mallas();
+		miMalla10 = new Mallas();
+		miMalla11 = new Mallas();
+		miMalla12 = new Mallas();
+		miMalla13 = new Mallas();
+		miMalla14 = new Mallas();
+		miMalla15 = new Mallas();
 
 		glTranslatef(0.0f, 0.0f, -5.0f);		// Espacio en el mundo
 		glClearColor(0.5f, 0.5f, 1.0f, 0.0f);
@@ -146,9 +183,21 @@ public:
 
 	  // **************************** Abrir mallas *************************************
 
-	  miMalla1->AbrirMallas("./Mallas/mesa_Octogonal.obj");
-
+	  miMalla1->AbrirMallas("./Mallas/Suelo.obj");
 	  miMalla2->AbrirMallas("./Mallas/silla.obj");
+	  miMalla3->AbrirMallas("./Mallas/mini_Silla.obj");
+	  miMalla4->AbrirMallas("./Mallas/mesa_Comun.obj");
+	  miMalla5->AbrirMallas("./Mallas/mesa_con_Cajones.obj");
+	  miMalla6->AbrirMallas("./Mallas/mesa_Octogonal.obj");
+	  miMalla7->AbrirMallas("./Mallas/estanteria.obj");
+	  miMalla8->AbrirMallas("./Mallas/armario_2_puertas.obj");
+	  miMalla9->AbrirMallas("./Mallas/armario_3_puertas.obj");
+	  miMalla10->AbrirMallas("./Mallas/persona_observadora.obj");
+	  miMalla11->AbrirMallas("./Mallas/persona_agachada.obj");
+	  miMalla12->AbrirMallas("./Mallas/persona_tropezando.obj");
+	  miMalla13->AbrirMallas("./Mallas/Personaje_principal_Sentado.obj");
+	  miMalla14->AbrirMallas("./Mallas/Personaje_Sentado.obj");
+	  miMalla15->AbrirMallas("./Mallas/casa.obj");
  
 	  //*** Para Textura: abrir archivo de textura
 	  initialize_textures();
