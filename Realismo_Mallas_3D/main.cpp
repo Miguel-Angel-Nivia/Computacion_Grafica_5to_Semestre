@@ -67,8 +67,8 @@ public:
 
 		// Loading JPG file
 		FIBITMAP* bitmap = FreeImage_Load(
-			FreeImage_GetFileType("./Mallas/bola.jpg", 0),
-			"./Mallas/bola.jpg");  //*** Para Textura: esta es la ruta en donde se encuentra la textura
+			FreeImage_GetFileType("./Mallas/mesa_Octogonal.jpg", 0),
+			"./Mallas/mesa_Octogonal.jpg");  //*** Para Textura: esta es la ruta en donde se encuentra la textura
 
 		FIBITMAP* pImage = FreeImage_ConvertTo32Bits(bitmap);
 		int nWidth = FreeImage_GetWidth(pImage);
@@ -90,39 +90,41 @@ public:
       //timer010 = 0.09; //for screenshot!
 
       glPushMatrix();
-	  glRotatef(timer010 * 360, 0.5, 1.0f, 0.1f);   // Rotacion del mundo
+	  glRotatef(timer010 * 360, 0.25, 1.0f, 0.0f);   // Rotacion del mundo
 
 	  // ***************************** Dibujar Malla *********************************
 
       if (shader1) shader1->begin();
-		  
-		miMalla1->DibujarMallas(0, -1.4, 0);	  // Suelo
-		miMalla2->DibujarMallas(-1.5, 0, 0);  // Silla
-		miMalla3->DibujarMallas(3, 0, 0.5);   // Mini Silla
-		miMalla4->DibujarMallas(-3, 0, 0);  // Mesa Comun
-		miMalla5->DibujarMallas(3, 0, 0);   // Mesa Con Cajones
-		miMalla6->DibujarMallas(0, 0, 0);  // Mesa Octogonal
-		miMalla7->DibujarMallas(2, 0, -2);   // Estanteria
-		miMalla8->DibujarMallas(2, 0, 2);  // Armario 2 Puertas
-		miMalla9->DibujarMallas(-2, 0, 2);   // Armario 3 Puertas
-		miMalla10->DibujarMallas(1.5, 0, -0.8);  // Persona observadora
-		miMalla11->DibujarMallas(-1, 0, -3);  // Perosna Agachada
-		miMalla12->DibujarMallas(-1.8, 0, -3); // Persona Tropezando
-		miMalla13->DibujarMallas(0, 0, -3); // Personaje Principal Sentado
-		miMalla14->DibujarMallas(1, 0, -1.5); // Persona Sentado
-		miMalla15->DibujarMallas(3, 0, -4);  // Casa
+	
+		miMalla1->DibujarMallas(0, -1, 0, 4.4);				// Suelo
+		miMalla2->DibujarMallas(-1.5, -0.25, 0, 0.7);		// Silla
+		miMalla3->DibujarMallas(3, -0.7, -1, 4.5);			// Mini Silla
+		miMalla4->DibujarMallas(-3, -0.5, 2, 4);			// Mesa Comun
+		miMalla5->DibujarMallas(3, -0.55, 0, 4);			// Mesa Con Cajones
+		miMalla7->DibujarMallas(-3, 0.3, -3.5, 2.5);		// Estanteria
+		miMalla8->DibujarMallas(-0.85, 0.1, 3, 5);			// Armario 2 Puertas
+		miMalla9->DibujarMallas(2.2, 0.2, -3.25, 5);		// Armario 3 Puertas
+		miMalla10->DibujarMallas(0, -0.3, -2, 2.2);			// Persona observadora
+		miMalla11->DibujarMallas(-1, -0.3, -3, 0.8);		// Persona Agachada
+		miMalla12->DibujarMallas(-1.8, -0.4, -3, 1);		// Persona Tropezando
+		miMalla13->DibujarMallas(0, 0.15, -3, 1.5);			// Personaje Principal Sentado
+		miMalla14->DibujarMallas(1, 0.18, -1.8, 3);			// Persona Sentado
+		miMalla15->DibujarMallas(3, 1.8, -12, 15);			// Casa
 
       if (shader1) shader1->end();
 
-	  //*** Para Textura: llamado al shader para objetos texturizados
-	  /*if (shader2) shader2->begin();
+	  // Para Textura: llamado al shader para objetos texturizados
+	  if (shader2) shader2->begin();
 
-		  glPushMatrix();
-		  glTranslatef(1.5f, 0.0f, 0.0f);
-		  glBindTexture(GL_TEXTURE_2D, texid);
-		  glmDraw(objeto2, GLM_SMOOTH | GLM_MATERIAL | GLM_TEXTURE);
-		  glPopMatrix();
-	  if (shader2) shader2->end();*/
+		miMalla6->DibujarMallasConTextura(0, -0.12, 0);		// Mesa Octogonal
+
+		// glPushMatrix();
+		// glTranslatef(1.5f, 0.0f, 0.0f);
+		// glBindTexture(GL_TEXTURE_2D, texid);
+		// glmDraw(objeto2, GLM_SMOOTH | GLM_MATERIAL | GLM_TEXTURE);
+		// glPopMatrix();
+
+	  if (shader2) shader2->end();
 
       glutSwapBuffers();
       glPopMatrix();

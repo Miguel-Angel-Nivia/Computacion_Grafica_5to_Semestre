@@ -13,7 +13,8 @@ class Mallas
 	public:
 	Mallas();
 
-	void DibujarMallas(float x, float y, float z);
+	void DibujarMallas(float x, float y, float z, float tam);
+	void DibujarMallasConTextura(float x, float y, float z);
 	void AbrirMallas(char* nombre);
 };
 

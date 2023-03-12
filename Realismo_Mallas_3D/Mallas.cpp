@@ -19,9 +19,17 @@ void Mallas::AbrirMallas(char* nombre) {
 }
 
 
-void Mallas::DibujarMallas(float x, float y, float z) {
+void Mallas::DibujarMallas(float x, float y, float z, float tam) {
 	glPushMatrix();
 	glTranslatef(x, y, z);
+	glScalef(tam, tam, tam);
 	glmDraw(objeto, GLM_SMOOTH | GLM_MATERIAL);
+	glPopMatrix();
+}
+
+void Mallas::DibujarMallasConTextura(float x, float y, float z) {
+	glPushMatrix();
+	glTranslatef(x, y, z);
+	glmDraw(objeto, GLM_SMOOTH | GLM_MATERIAL | GLM_TEXTURE);
 	glPopMatrix();
 }
