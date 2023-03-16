@@ -1,6 +1,6 @@
 # Blender 3.4.1
 # www.blender.org
-mtllib mesa_con_Cajones.mtl
+# mtllib mesa_con_Cajones.mtl
 o 35
 v 60.517715 -6.527894 12.190626
 v 54.944321 -6.527895 12.171051

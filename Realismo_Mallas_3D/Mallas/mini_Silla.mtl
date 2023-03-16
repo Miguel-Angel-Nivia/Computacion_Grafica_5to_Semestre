@@ -1,43 +1,12 @@
-# Blender 3.4.1 MTL File: 'None'
+# Blender 3.4.1 MTL File: 'escena.blend'
 # www.blender.org
-
-newmtl odesd2_q3_coffee_table_mtl_1
-Ns 10.000005
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 1.000000 1.000000 1.000000
-Ni 1.500000
-d 1.000000
-illum 1
-map_Kd C:/Users/FAMILIA/Desktop/TODO MIGUE/Universidad Javeriana Cali/Asignaturas-Semestre/5. Quinto Semestre/Computación Grafica/Archivos Blender/odesd2_q3_coffee_table_fbx_obj/dcmap_odesd2_q1_lounge_chair_3b08e.jpg
-map_Bump C:/Users/FAMILIA/Desktop/TODO MIGUE/Universidad Javeriana Cali/Asignaturas-Semestre/5. Quinto Semestre/Computación Grafica/Archivos Blender/odesd2_q3_coffee_table_fbx_obj/dcmap_odesd2_q1_lounge_chair_04438.jpg
 
 newmtl odesd2_q3_coffee_table_mtl_2
 Ns 10.000005
-Ka 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
+Ka 1.000000 0.000000 0.000000
+Ks 1.000000 0.000000 0.000000
+Ke 1.000000 1.000000 1.000000
 Ni 1.500000
 d 1.000000
 illum 1
 map_Kd C:/Users/FAMILIA/Desktop/TODO MIGUE/Universidad Javeriana Cali/Asignaturas-Semestre/5. Quinto Semestre/Computación Grafica/Archivos Blender/odesd2_q3_coffee_table_fbx_obj/dcmap_odesd2_q1_lounge_chair_11786.jpg
-
-newmtl odesd2_q3_coffee_table_mtl_3
-Ns 10.000005
-Ka 1.000000 1.000000 1.000000
-Kd 0.803900 0.803900 0.803900
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl odesd2_q3_coffee_table_mtl_4
-Ns 10.000005
-Ka 1.000000 1.000000 1.000000
-Kd 0.500000 0.500000 0.500000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1

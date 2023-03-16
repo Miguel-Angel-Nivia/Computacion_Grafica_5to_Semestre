@@ -27,9 +27,10 @@ void Mallas::DibujarMallas(float x, float y, float z, float tam) {
 	glPopMatrix();
 }
 
-void Mallas::DibujarMallasConTextura(float x, float y, float z) {
+void Mallas::DibujarMallasConTextura(float x, float y, float z, GLuint &texid) {
 	glPushMatrix();
 	glTranslatef(x, y, z);
+	glBindTexture(GL_TEXTURE_2D, texid);
 	glmDraw(objeto, GLM_SMOOTH | GLM_MATERIAL | GLM_TEXTURE);
 	glPopMatrix();
 }

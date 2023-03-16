@@ -14,7 +14,7 @@ class Mallas
 	Mallas();
 
 	void DibujarMallas(float x, float y, float z, float tam);
-	void DibujarMallasConTextura(float x, float y, float z);
+	void DibujarMallasConTextura(float x, float y, float z, GLuint &texid);
 	void AbrirMallas(char* nombre);
 };
 

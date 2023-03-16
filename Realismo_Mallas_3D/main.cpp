@@ -116,7 +116,7 @@ public:
 	  // Para Textura: llamado al shader para objetos texturizados
 	  if (shader2) shader2->begin();
 
-		miMalla6->DibujarMallasConTextura(0, -0.12, 0);		// Mesa Octogonal
+		miMalla6->DibujarMallasConTextura(0, -0.12, 0, texid);		// Mesa Octogonal
 
 		// glPushMatrix();
 		// glTranslatef(1.5f, 0.0f, 0.0f);
